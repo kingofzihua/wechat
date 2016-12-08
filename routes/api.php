@@ -12,8 +12,10 @@ use Illuminate\Http\Request;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+//!!!!!!!!默认增加api前缀
 
 Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:api');
-Route::any('/api/wechat', 'Api\WechatController@')->middleware('auth:api');
+//微信消息api
+Route::any('/wechat', 'Api\WechatController@serve')->middleware('api');

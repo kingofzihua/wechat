@@ -1,6 +1,6 @@
 <?php
 
-use EasyWeChat\Foundation\Application;
+namespace App\Http\Controllers\Api;
 
 /**
  *  微信Api
