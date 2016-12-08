@@ -10,7 +10,10 @@ use Encore\Admin\Controllers\ModelForm;
 
 class MenuController extends Controller
 {
+
     use ModelForm;
+
+    private $wechat;
 
     /**
      * Index interface.
