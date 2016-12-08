@@ -84,7 +84,7 @@ class ArticleController extends Controller
     {
         return Admin::grid(Article::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
-            $grid->column('title', "标题")->editable();
+            $grid->column('title', "标题");
             $grid->image("图片")->value(function ($value) {
                 if (!empty($value)) {
                     return "<image  src='" . config("admin.upload.host") . $value . "' height='40px' />";
