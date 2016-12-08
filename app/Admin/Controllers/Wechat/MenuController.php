@@ -15,6 +15,11 @@ class MenuController extends Controller
 
     private $wechat;
 
+    public function __construct()
+    {
+        $this->wechat = app('wechat');
+    }
+
     /**
      * Index interface.
      *
@@ -38,7 +43,22 @@ class MenuController extends Controller
      */
     protected function menu()
     {
+
+        $menu = $this->wechat->menu;
+//        $menus = $menu->current()->all();
+//        dump($menus);
         return view('wechat.menu.index');
     }
+
+    /**
+     * 删除菜单
+     */
+    protected function deleteMenu()
+    {
+        $menu = $this->wechat->menu;
+        $res = $menu->destroy(); // 全部
+        return $res;
+    }
+
 
 }
