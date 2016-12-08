@@ -15,7 +15,12 @@ class WechatController extends \App\Http\Controllers\Controller
         $this->wechat = app('wechat');
     }
 
-    public function index()
+    /**
+     * 处理微信的请求消息
+     *
+     * @return string
+     */
+    public function serve()
     {
         $server = $this->wechat->server;
         $server->setMessageHandler(function ($message) {
