@@ -8,7 +8,7 @@ use Illuminate\Foundation\Validation\ValidatesRequests;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 /**
- * 后台基础控制器
+ * 前台基础控制器
  * Class Controller
  * @package App\Http\Controllers
  */

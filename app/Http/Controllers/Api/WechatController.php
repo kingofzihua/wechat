@@ -7,7 +7,7 @@ use EasyWeChat\Support\Log;
 /**
  *  微信Api
  */
-class WechatController extends \App\Http\Controllers\Controller
+class WechatController extends ApiController
 {
     private $wechat;    //微信接口实例
     private $message;   //上行消息
