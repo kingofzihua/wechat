@@ -39,7 +39,8 @@ class Kernel extends HttpKernel
             'bindings',
         ],
         'index' => [
-            'lang'
+            'lang',
+            'basic'
         ]
     ];
 
@@ -58,5 +59,6 @@ class Kernel extends HttpKernel
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'lang' => \App\Http\Middleware\lang::class,
+        'basic' => \App\Http\Middleware\Basic::class,
     ];
 }

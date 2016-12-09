@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>King丶洛</title>
     <!-- Fonts -->
-    <link rel="icon" href="http://www.easyicon.net/api/resizeApi.php?id=5476&size=128" mce_href="http://wechat.king.shanheweb.com" type="image/x-icon" />
+    <link rel="icon" href="http://www.easyicon.net/api/resizeApi.php?id=5476&size=128"
+          mce_href="http://wechat.king.shanheweb.com" type="image/x-icon"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
     <!-- Styles -->
     <style>

@@ -18,9 +18,7 @@ Route::get('/welcome', function () {
  * 前台路由
  */
 Route::group(['middleware' => 'index'], function () {
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/','ShowController@index');
 });
 /**
  * 测试路由
