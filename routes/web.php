@@ -11,10 +11,17 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/welcome', function () {
     return view('welcome');
+})->middleware('lang');
+/**
+ * 前台路由
+ */
+Route::group(['middleware' => 'index'], function () {
+    Route::get('/', function () {
+        return view('welcome');
+    });
 });
-
 /**
  * 测试路由
  */
