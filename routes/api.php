@@ -14,8 +14,8 @@ use Illuminate\Http\Request;
 */
 //!!!!!!!!默认增加api前缀
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+//Route::get('/user', function (Request $request) {
+//    return $request->user();
+//})->middleware('auth:api');
 //微信消息api
-Route::any('/wechat', 'Api\WechatController@serve')->middleware('api');
+Route::any('/wechat', 'Api\WechatController@serve')->middleware('wechat');

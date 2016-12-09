@@ -20,4 +20,5 @@ Route::get('/', function () {
  */
 Route::group(['prefix' => 'test'], function () {
     Route::any('/', "TestController@index");
+    Route::any('/zw', "TestController@test");
 });
