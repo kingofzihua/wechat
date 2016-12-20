@@ -18,11 +18,11 @@ Route::get('/', function () {
  * 前台路由
  */
 
-Route::group(['middleware' => 'index'], function () {//前台中间件
+Route::group(['middleware' => ['index', 'lang']], function () {//前台|语言中间件
     //不需要登录就可以看到的
+    Auth::routes(); //auth
 
     //需要登录
-    Auth::routes();
     Route::group(['middleware' => 'auth'], function () {//登录中间件
         Route::get('/home', 'HomeController@index');    //个人中心
     });
@@ -35,5 +35,6 @@ Route::group(['middleware' => 'index'], function () {//前台中间件
  */
 Route::group(['prefix' => 'test'], function () {
     Route::any('/', "TestController@index");
+    Route::any('/email', "TestController@email");
 });
 

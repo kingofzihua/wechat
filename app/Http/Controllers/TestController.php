@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class TestController extends BaseController
@@ -20,6 +21,18 @@ class TestController extends BaseController
         } else {
             return view("show/form");
         }
+    }
+
+    /**
+     * 邮件测试
+     */
+    public function email()
+    {
+        $data = ['email'=>"1261456134@qq.com", 'name'=>'name'];
+        Mail::send('welcome', $data, function($message) use($data)
+        {
+            $message->to($data['email'], $data['name'])->subject('欢迎注册我们的网站，请激活您的账号！');
+        });
     }
 
 }

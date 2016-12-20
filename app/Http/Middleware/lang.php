@@ -3,6 +3,8 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Cookie;
 
 /**
  * 实现前台多语言
@@ -20,8 +22,9 @@ class lang
      */
     public function handle($request, Closure $next)
     {
-        $lang = 'zh_cn';
-        $request->session()->flash('_lang', 'zh_cn');
+        $lang = 'zh_CN';
+        $request->session()->flash('_lang', 'zh_CN');
+//        App::setLocale('zh_CN'); //重置env里面的语言选项
         return $next($request);
     }
 
