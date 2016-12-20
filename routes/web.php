@@ -11,19 +11,29 @@
 |
 */
 
-Route::get('/welcome', function () {
+Route::get('/', function () {
     return view('welcome');
-})->middleware('lang');
+});
 /**
  * 前台路由
  */
-Route::group(['middleware' => 'index'], function () {
-    Route::get('/','ShowController@index');
+
+Route::group(['middleware' => 'index'], function () {//前台中间件
+    //不需要登录就可以看到的
+
+    //需要登录
+    Auth::routes();
+    Route::group(['middleware' => 'auth'], function () {//登录中间件
+        Route::get('/home', 'HomeController@index');    //个人中心
+    });
+
 });
+
+
 /**
  * 测试路由
  */
 Route::group(['prefix' => 'test'], function () {
     Route::any('/', "TestController@index");
-    Route::any('/zw', "TestController@test");
 });
+
