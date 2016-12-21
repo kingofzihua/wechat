@@ -36,4 +36,13 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
+
+    /**
+     * 设置登录时的字段 默认为邮箱登录
+     * @return string
+     */
+    public function username()
+    {
+        return 'name';
+    }
 }

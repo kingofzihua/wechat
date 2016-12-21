@@ -12,9 +12,10 @@
 
     <!-- Styles -->
     <link href="/auth/css/app.css" rel="stylesheet">
-
+    <link rel="icon" href="http://www.easyicon.net/api/resizeApi.php?id=5476&size=128"
+          mce_href="http://wechat.king.shanheweb.com" type="image/x-icon"/>
     <!-- Scripts -->
-    <script>
+    <script type="text/javascript">
         window.Laravel = <?php echo json_encode([
                 'csrfToken' => csrf_token(),
         ]); ?>
@@ -51,21 +52,20 @@
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Authentication Links -->
                     @if (Auth::guest())
-                        <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        <li><a href="{{ url('/login') }}">{{ trans('auth.form.Login') }}</a></li>
+                        <li><a href="{{ url('/register') }}">{{ trans('auth.form.Register') }}</a></li>
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"
                                aria-expanded="false">
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
-
                             <ul class="dropdown-menu" role="menu">
                                 <li>
                                     <a href="{{ url('/logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        Logout
+                                        {{ trans('auth.form.Logout') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ url('/logout') }}" method="POST"
@@ -85,6 +85,6 @@
 </div>
 
 <!-- Scripts -->
-<script src="/auth/js/app.js"></script>
+<script type="text/javascript" src="/auth/js/app.js"></script>
 </body>
 </html>

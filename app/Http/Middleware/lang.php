@@ -22,9 +22,12 @@ class lang
      */
     public function handle($request, Closure $next)
     {
-        $lang = 'zh_CN';
-        $request->session()->flash('_lang', 'zh_CN');
-//        App::setLocale('zh_CN'); //重置env里面的语言选项
+//        $lang = 'zh_CN';
+//        $request->session()->flash('_lang', 'zh_CN');
+        if (!empty($request->lang)) {
+            App::setLocale('en'); //重置env里面的语言选项
+        }
+
         return $next($request);
     }
 

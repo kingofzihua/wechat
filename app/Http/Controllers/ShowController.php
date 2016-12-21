@@ -9,8 +9,9 @@ class ShowController extends BasicController
     /**
      * 首页
      */
-    public function index()
+    public function index(Request $request)
     {
+        dump($request);
         return view($this->_style.'.index');
     }
 }
