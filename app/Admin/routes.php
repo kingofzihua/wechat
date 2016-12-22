@@ -11,6 +11,7 @@ Route::group([
     $router->get('/', 'HomeController@index');
     $router->resource('users', UserController::class);//用户管理
     $router->resource('article', ArticleController::class);//文章管理
+    $router->resource('tag', TagController::class);//文章管理
     $router->resource('wechat/menu', Wechat\MenuController::class);//微信菜单
 
 });

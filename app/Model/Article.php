@@ -10,5 +10,14 @@ class Article extends Authenticatable
 {
 //    use Notifiable;
     use SoftDeletes;
+
+    public static function options($id)
+    {
+        return static::where('id', $id)->get()->map(function ($address) {
+
+            return [$address->id => $address->address];
+
+        })->flatten();
+    }
 }
 

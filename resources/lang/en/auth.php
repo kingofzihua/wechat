@@ -15,6 +15,7 @@ return [
 
     'failed' => 'These credentials do not match our records.',
     'throttle' => 'Too many login attempts. Please try again in :seconds seconds.',
+    'language'=>'Language',
     'form' => [
         'Login' => 'Login',
         'E-Mail Address' => "E-Mail Address",

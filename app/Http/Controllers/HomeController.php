@@ -32,4 +32,12 @@ class HomeController extends Controller
         $user = Auth::user();
         return view('default.home', ['user' => $user]);
     }
+
+    /**
+     * 个人资料页
+     */
+    public function profile()
+    {
+
+    }
 }

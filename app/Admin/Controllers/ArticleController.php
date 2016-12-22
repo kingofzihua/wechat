@@ -4,6 +4,7 @@ namespace App\Admin\Controllers;
 
 use App\Model\Article;
 
+use App\Model\Tag;
 use App\User;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -11,7 +12,7 @@ use Encore\Admin\Facades\Admin;
 use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
-use Encore\Admin\Auth\Permission;
+use Illuminate\Support\Facades\DB;
 
 class ArticleController extends Controller
 {
@@ -105,12 +106,14 @@ class ArticleController extends Controller
                     return '';
                 }
             });
+            $grid->tag('标签');
             $grid->updated_at("修改时间")->sortable();
-            $grid->disableBatchDeletion();//禁用批量删除
+            $grid->disableBatchDeletion();  //禁用批量删除
+            $grid->disableExport();     //禁用导出数据按钮
             $grid->view("laravel-admin.grid.table");
             $grid->filter(function ($filter) {
-                $filter->like('title','标题');
-                $filter->like('auth','作者');
+                $filter->like('title', '标题');
+                $filter->like('auth', '作者');
             });
         });
     }
@@ -122,10 +125,10 @@ class ArticleController extends Controller
      */
     protected function form()
     {
-
         return Admin::form(Article::class, function (Form $form) {
             $form->text('title', "标题")->rules('required|max:30');
             $form->text('desc', "简介")->rules('required|max:50');
+            $form->multipleSelect('tag')->options(Tag::all()->pluck('name', 'id'));
             $form->image('image', "图片");
             $form->editor('content', "内容")->rules('required|max:500');
             $form->hidden('auth')->value('1');

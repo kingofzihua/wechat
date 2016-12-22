@@ -14,10 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
 /**
  * 前台路由
  */
-
 Route::group(['middleware' => ['index', 'lang']], function () {//前台|语言中间件
     //不需要登录就可以看到的
     Auth::routes(); //auth
@@ -28,7 +28,6 @@ Route::group(['middleware' => ['index', 'lang']], function () {//前台|语言�
     });
 
 });
-
 
 /**
  * 测试路由

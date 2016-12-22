@@ -45,7 +45,7 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    &nbsp;
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -62,6 +62,10 @@
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li>
+                                    <a href="#">个人中心</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
                                     <a href="{{ url('/logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -76,11 +80,23 @@
                             </ul>
                         </li>
                     @endif
+                    <li style="display: none;">
+                        <div class="btn-group" style="padding: 10px 15px;">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                {{ trans('auth.language') }}<span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="?lang=zh_CN">中文</a></li>
+                                <li class="divider"></li>
+                                <li><a href="?lang=en">English</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
+
             </div>
         </div>
     </nav>
-
     @yield('content')
 </div>
 

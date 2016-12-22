@@ -84,7 +84,13 @@ class UserController extends Controller
 //            $grid->column('name','用户名');//防止name 与 Grid对象中的name 冲突
             $grid->name('用户名')->sortable();//获取name字段
             $grid->email('邮箱');//获取name字段
-            $grid->password('密码');//获取password字段 不行
+            $grid->headimg("头像")->value(function ($value) {
+                if (!empty($value)) {
+                    return "<image  src='" . config("admin.upload.host") . $value . "' height='40px' />";
+                } else {
+                    return '';
+                }
+            });
 //            $grid->created_at();
             $grid->updated_at("修改时间")->sortable();
             //操作按钮
@@ -105,6 +111,7 @@ class UserController extends Controller
             $form->text('name', '用户名')->rules('required|max:20');
             $form->password('password', '密码')->rules('required|min:6');
             $form->email('email', '邮箱');
+            $form->image('headimg','头像');
         });
     }
 }

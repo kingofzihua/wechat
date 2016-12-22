@@ -15,6 +15,7 @@ return [
 
     'failed' => '用户名或密码错误.',
     'throttle' => '太多的登录尝试。请再试一次 :seconds 秒.',
+    'language'=>'语言',
     'form' => [
         'Login' => '登录',
         'E-Mail Address' => "邮箱地址",
