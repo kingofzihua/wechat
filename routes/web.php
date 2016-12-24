@@ -35,5 +35,6 @@ Route::group(['middleware' => ['index', 'lang']], function () {//前台|语言�
 Route::group(['prefix' => 'test'], function () {
     Route::any('/', "TestController@index");
     Route::any('/email', "TestController@email");
+    Route::any('/arr', "TestController@arr");
 });
 
