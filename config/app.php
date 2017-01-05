@@ -179,7 +179,7 @@ return [
         Encore\Admin\Providers\AdminServiceProvider::class,//laravel-admin
         Overtrue\LaravelWechat\ServiceProvider::class,//laravel-wechat
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
-        Kingofhua\OSS\AliyunOssFilesystemServiceProvider::class,
+//        Kingofzihua\OSS\AliyunOssFilesystemServiceProvider::class,
     ],
 
     /*
