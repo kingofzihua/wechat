@@ -36,5 +36,14 @@ Route::group(['prefix' => 'test'], function () {
     Route::any('/', "TestController@index");
     Route::any('/email', "TestController@email");
     Route::any('/arr', "TestController@arr");
+    Route::group(['prefix' => 'lang'], function () {
+        Route::any('/set', "LangController@setLang");
+        Route::any('/get', "LangController@getLang");
+        Route::any('/edit', "LangController@editLang");
+        Route::any('/del', "LangController@delLang");
+        Route::any('/get/{key}', "LangController@lang");
+        Route::any('/get/{key}/{type}', "LangController@lang");
+    });
+
 });
 

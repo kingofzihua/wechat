@@ -83,4 +83,8 @@ class TestController extends BaseController
         }
         return $res;
     }
+
+    public function lang(){
+        LangController::lang();
+    }
 }

@@ -13,14 +13,17 @@ class CreateBasicTable extends Migration
      */
     public function up()
     {
-        Schema::create('basics', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('name'); //配置名
-            $table->string('value');//配置值
-            $table->string('desc'); //中文解释
-            $table->string('tag');  //标签
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('basics')) {
+            Schema::create('basics', function (Blueprint $table) {
+                $table->increments('id');
+                $table->string('name'); //配置名
+                $table->string('value');//配置值
+                $table->string('desc'); //中文解释
+                $table->string('tag');  //标签
+                $table->timestamps();
+            });
+        }
+
     }
 
     /**
